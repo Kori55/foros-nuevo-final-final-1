@@ -61,7 +61,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -82,7 +82,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -105,7 +105,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -128,7 +128,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -151,7 +151,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -174,7 +174,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -197,7 +197,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -220,7 +220,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -243,7 +243,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
@@ -266,7 +266,7 @@ fun ForosCategorias(
             )
         }
         Button(
-            onClick = { navController.navigate("Post") },
+            onClick = { navController.navigate("ListadoPosts") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Ir")
