@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -42,58 +43,67 @@ fun Post(
     val hola = listOf(":v", "hola", "h", "o/", "hol", "efffgbf", "oa", "🫃", "olaaaaaaa", "ratio")
     val nombres = listOf("juan", "juan 2", "juan 3", "juan 4", "juan 5", "juan 6", "juan 7", "juan 8", "juan 9", "ratio")
 
-    Box(
+    Column(
         Modifier
-            .fillMaxWidth()
-            .shadow(elevation = 2.dp)
-            .height(100.dp)
-            .padding(horizontal = 20.dp, vertical = 20.dp)
-        // .scrollable(orientation = v)
+            .fillMaxSize()
+            .padding(16.dp)
     ) {
-        Row(Modifier
-            .fillMaxWidth()
-        ){
-            Column(Modifier
-                .fillMaxHeight(),
-                horizontalAlignment = Alignment.CenterHorizontally,
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .shadow(elevation = 2.dp)
+                .height(100.dp)
+                .padding(horizontal = 20.dp, vertical = 20.dp)
+            // .scrollable(orientation = v)
+        ) {
+            Row(
+                Modifier
+                    .fillMaxWidth()
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.usericon), "Logo App",
-                    modifier = Modifier
-                        .width(50.dp)
-                        .height(50.dp),
-                    contentScale = ContentScale.Fit
-                )
+                Column(
+                    Modifier
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.usericon), "Logo App",
+                        modifier = Modifier
+                            .width(50.dp)
+                            .height(50.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                    Text(
+                        text = "Usuario",
+                        fontSize = 10.sp
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(10.dp).fillMaxHeight())
                 Text(
-                    text = "Usuario",
-                    fontSize = 10.sp
+                    text = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.",
+                    fontSize = 20.sp
                 )
             }
-
-            Spacer(modifier = Modifier.width(10.dp).fillMaxHeight())
-            Text(
-                text = "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.",
-                fontSize = 20.sp
-            )
         }
-    }
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(29.dp))
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(10.dp)
+                .padding(15.dp)
                 .verticalScroll(scrollState),
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
             for (i in 0..8) {
-                Row(Modifier
-                    .fillMaxWidth()
-                    .shadow(elevation = 2.dp)
-                    .height(80.dp)
-                    .padding(horizontal = 20.dp, vertical = 20.dp)
-                ){
-                    Column(Modifier
-                        .fillMaxHeight(),
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .shadow(elevation = 2.dp)
+                        .height(80.dp)
+                        .padding(horizontal = 20.dp, vertical = 20.dp)
+                ) {
+                    Column(
+                        Modifier
+                            .fillMaxHeight(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Image(
@@ -114,7 +124,28 @@ fun Post(
                         text = hola[i],
                         fontSize = 17.sp
                     )
+                    Row(
+                        Modifier
+                            .fillMaxWidth()
+                            .offset(x = 28.dp, y = 82.dp),
+                        horizontalArrangement = Arrangement.spacedBy(7.dp)
+                    ) {
+                        Text(
+                            text = "Editar",
+                            fontSize = 12.sp
+                        )
+                        Text(
+                            text = "Reportar",
+                            fontSize = 12.sp
+                        )
+                        Text(
+                            text = "Eliminar",
+                            fontSize = 12.sp
+                        )
+                    }
                 }
+
             }
         }
+    }
     }

@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -64,6 +65,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 /*
 @Preview(showBackground = true)
 @Composable
@@ -103,10 +105,28 @@ fun CajaPost() {
             )
         }
     }
+    Row(Modifier
+        .fillMaxWidth()
+        .offset(x = 28.dp, y = 82.dp),
+        horizontalArrangement = Arrangement.spacedBy(7.dp)
+    ) {
+        Text(
+            text = "Editar",
+            fontSize = 12.sp
+        )
+        Text(
+            text = "Reportar",
+            fontSize = 12.sp
+        )
+        Text(
+            text = "Eliminar",
+            fontSize = 12.sp
+        )
+    }
 }
 */
 
-/*
+
 @Preview(showBackground = true)
 @Composable
 fun listaRespuestas() {
@@ -120,7 +140,7 @@ fun listaRespuestas() {
             .fillMaxSize()
             .padding(10.dp)
             .verticalScroll(scrollState),
-        verticalArrangement = Arrangement.spacedBy(15.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         for (i in 0..8) {
             Row(Modifier
@@ -152,11 +172,29 @@ fun listaRespuestas() {
                     fontSize = 17.sp
                 )
             }
+            Row(Modifier
+                .fillMaxWidth()
+                .offset(x = 23.dp, y = 82.dp),
+                horizontalArrangement = Arrangement.spacedBy(7.dp)
+            ) {
+                Text(
+                    text = "Editar",
+                    fontSize = 12.sp
+                )
+                Text(
+                    text = "Reportar",
+                    fontSize = 12.sp
+                )
+                Text(
+                    text = "Eliminar",
+                    fontSize = 12.sp
+                )
+            }
         }
     }
 }
- */
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun previewPost() {
@@ -192,6 +230,7 @@ fun previewPost() {
         }
     }
 }
+*/
 /*
 @Preview(showBackground = true)
 @Composable
