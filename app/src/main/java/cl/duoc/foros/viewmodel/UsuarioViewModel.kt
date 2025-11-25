@@ -1,13 +1,16 @@
 package cl.duoc.foros.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import cl.duoc.foros.model.Usuario
 import cl.duoc.foros.model.UsuarioErrores
+import cl.duoc.foros.repository.UsuarioRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
-class UsuarioViewModel : ViewModel() {
+class UsuarioViewModel(private val repository : UsuarioRepository) : ViewModel() {
     private val _estado = MutableStateFlow(Usuario())
 
     val estado : StateFlow<Usuario> = _estado
@@ -63,8 +66,20 @@ class UsuarioViewModel : ViewModel() {
         return !hayErrores
     }
 
-    fun onBoxCLick() {
-
+    fun crearUsuario() {
+        val estadoActual = _estado.value
+        if (validarCasillas()) {
+            viewModelScope.launch {
+                val nuevoUsuario = Usuario(
+                    nombre = estadoActual.nombre,
+                    correo = estadoActual.correo,
+                    clave = estadoActual.clave,
+                    terminos = estadoActual.terminos,
+                    moderador = estadoActual.moderador
+                )
+                repository.insertar(nuevoUsuario)
+            }
+        }
     }
 
 

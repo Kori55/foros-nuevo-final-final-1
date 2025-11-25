@@ -7,13 +7,13 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface UsuarioDAO {
-    @Query("SELECT * FROM usuarios ORDER BY id DESC")
-    suspend fun obtenerUsuarios(): List<Usuario>
+interface PublicacionDAO {
+    @Query("SELECT * FROM posts ORDER BY postID DESC")
+    suspend fun obtenerPosts() : List<Publicacion>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertar(usuario: Usuario)
+    suspend fun insertar(publicacion: Publicacion)
 
     @Delete
-    suspend fun eliminar(usuario: Usuario)
+    suspend fun eliminar(publicacion: Publicacion)
 }
