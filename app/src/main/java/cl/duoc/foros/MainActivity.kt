@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.materialIcon
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -59,6 +61,9 @@ class MainActivity : ComponentActivity() {
                     Post(navController, usuarioViewModel)
                 }
                 composable("Post") {
+                    Post(navController, usuarioViewModel)
+                }
+                composable("CrearPost") {
                     Post(navController, usuarioViewModel)
                 }
             }
@@ -125,7 +130,7 @@ fun CajaPost() {
     }
 }
 */
-
+/*
 
 @Preview(showBackground = true)
 @Composable
@@ -194,6 +199,8 @@ fun listaRespuestas() {
     }
 }
 
+
+ */
 /*
 @Preview(showBackground = true)
 @Composable
@@ -286,3 +293,20 @@ fun ForosCategorias() {
 }
 
  */
+
+@Preview(showBackground = true)
+@Composable
+fun botonCrearPost() {
+    Button(
+        onClick = {
+            // navController.navigate("CrearPost")
+        },
+        modifier = Modifier
+            .width(16.dp)
+            .height(16.dp)
+
+    ) {
+        // materialIcon()
+        Text("+")
+    }
+}

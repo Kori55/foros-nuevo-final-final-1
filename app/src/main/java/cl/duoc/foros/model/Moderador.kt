@@ -1,3 +1,5 @@
+
+/*
 package cl.duoc.foros.model
 
 data class Moderador(
@@ -11,4 +13,4 @@ data class Moderador(
         errores = UsuarioErrores()
         )
     // object funcionesModeracion : FuncionesModeracion()
-
+*/
