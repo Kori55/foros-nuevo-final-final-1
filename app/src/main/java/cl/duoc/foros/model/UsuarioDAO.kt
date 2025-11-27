@@ -1,5 +1,5 @@
 package cl.duoc.foros.model
-
+/*
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -17,3 +17,5 @@ interface UsuarioDAO {
     @Delete
     suspend fun eliminar(usuario: Usuario)
 }
+
+ */

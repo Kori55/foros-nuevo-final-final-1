@@ -1,5 +1,6 @@
-package cl.duoc.foros.model
 
+package cl.duoc.foros.model
+/*
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -17,3 +18,5 @@ interface PublicacionDAO {
     @Delete
     suspend fun eliminar(publicacion: Publicacion)
 }
+
+ */
