@@ -146,6 +146,13 @@ fun Post(
 
                             }
                         )
+                        Image(
+                            painter = painterResource(id = R.drawable.estrella1), "Logo App",
+                            modifier = Modifier
+                                .width(15.dp)
+                                .height(15.dp),
+                            contentScale = ContentScale.Fit
+                        )
                     }
                 }
 
