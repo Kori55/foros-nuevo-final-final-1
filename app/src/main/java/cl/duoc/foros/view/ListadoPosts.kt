@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -37,19 +38,6 @@ fun ListadoPosts(
     viewModel : UsuarioViewModel,
 ) {
     val scrollState = rememberScrollState()
-    Button(
-        onClick = {
-            // navController.navigate("CrearPost")
-        },
-        modifier = Modifier
-            .width(16.dp)
-            .height(16.dp)
-
-    ) {
-        // materialIcon()
-        Text("+")
-    }
-
     Column(
         Modifier
             .fillMaxSize()
@@ -80,5 +68,18 @@ fun ListadoPosts(
                 }
             }
         }
+    }
+    Button(
+        onClick = {
+            navController.navigate("CrearPost")
+        },
+        modifier = Modifier
+            .offset(300.dp, 830.dp)
+            .width(76.dp)
+            .height(76.dp)
+
+    ) {
+        // materialIcon()
+        Text("+", fontSize = 50.sp)
     }
 }

@@ -37,9 +37,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import cl.duoc.foros.view.CrearPost
 import cl.duoc.foros.view.ForosCategorias
+import cl.duoc.foros.view.ListadoPosts
 import cl.duoc.foros.view.Post
 import cl.duoc.foros.view.Principal
+import cl.duoc.foros.viewmodel.PostViewModel
 import cl.duoc.foros.viewmodel.UsuarioViewModel
 
 class MainActivity : ComponentActivity() {
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             val usuarioViewModel : UsuarioViewModel = viewModel()
+            val postViewModel : PostViewModel = viewModel()
 
             NavHost(navController = navController, startDestination = "Principal") {
                 composable("Principal") {
@@ -58,13 +62,13 @@ class MainActivity : ComponentActivity() {
                     ForosCategorias(navController, usuarioViewModel)
                 }
                 composable("ListadoPosts") {
-                    Post(navController, usuarioViewModel)
+                    ListadoPosts(navController, usuarioViewModel)
                 }
                 composable("Post") {
                     Post(navController, usuarioViewModel)
                 }
                 composable("CrearPost") {
-                    Post(navController, usuarioViewModel)
+                    CrearPost(navController, postViewModel)
                 }
             }
         }
