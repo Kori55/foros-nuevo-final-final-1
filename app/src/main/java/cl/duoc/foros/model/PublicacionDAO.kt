@@ -1,6 +1,6 @@
 
 package cl.duoc.foros.model
-/*
+
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -13,10 +13,8 @@ interface PublicacionDAO {
     suspend fun obtenerPosts() : List<Publicacion>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertar(publicacion: Publicacion)
+    suspend fun insertarPost(publicacion: Publicacion)
 
     @Delete
-    suspend fun eliminar(publicacion: Publicacion)
+    suspend fun eliminarPost(publicacion: Publicacion)
 }
-
- */

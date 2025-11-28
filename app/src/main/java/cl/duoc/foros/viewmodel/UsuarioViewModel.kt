@@ -3,17 +3,18 @@ package cl.duoc.foros.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.duoc.foros.model.Usuario
-import cl.duoc.foros.model.UsuarioErrores
+import cl.duoc.foros.repository.UsuarioRepository
 // import cl.duoc.foros.repository.UsuarioRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 // private val repository : UsuarioRepository
-class UsuarioViewModel() : ViewModel() {
-    private val _estado = MutableStateFlow(Usuario())
+class UsuarioViewModel(repository: UsuarioRepository) : ViewModel() {
 
-    val estado : StateFlow<Usuario> = _estado
+    private val _estado = MutableStateFlow(UsuarioUIState())
+
+    val estado : StateFlow<UsuarioUIState> = _estado
 
     fun onNombreChange(valor : String) {
         _estado.update { it.copy(nombre = valor, errores = it.errores.copy(nombre = null))}
@@ -26,7 +27,7 @@ class UsuarioViewModel() : ViewModel() {
     fun onClaveChange(valor : String) {
         _estado.update { it.copy(clave = valor, errores = it.errores.copy(clave = null))}
     }
-
+/*
     fun onTerminosChange(valor : Boolean) {
         _estado.update{it.copy ( terminos = valor)}
     }
@@ -34,7 +35,6 @@ class UsuarioViewModel() : ViewModel() {
     fun onModeradorCheck(valor : Boolean) {
         _estado.update{it.copy ( moderador = valor)}
     }
-
     fun borrarPost() : Boolean {
         val estadoActual = _estado.value
         val errores = UsuarioErrores(
@@ -48,6 +48,7 @@ class UsuarioViewModel() : ViewModel() {
 
         return !hayErrores
     }
+    */
 
     fun validarCasillas() : Boolean {
         val estadoActual = _estado.value
@@ -73,9 +74,7 @@ class UsuarioViewModel() : ViewModel() {
                 val nuevoUsuario = Usuario(
                     nombre = estadoActual.nombre,
                     correo = estadoActual.correo,
-                    clave = estadoActual.clave,
-                    terminos = estadoActual.terminos,
-                    moderador = estadoActual.moderador
+                    // clave = estadoActual.clave,
                 )
                 // repository.insertar(nuevoUsuario)
             }

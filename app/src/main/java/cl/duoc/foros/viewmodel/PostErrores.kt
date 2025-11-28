@@ -1,4 +1,4 @@
-package cl.duoc.foros.model
+package cl.duoc.foros.viewmodel
 
 data class PostErrores(
     val usuarioID : Int? = null,

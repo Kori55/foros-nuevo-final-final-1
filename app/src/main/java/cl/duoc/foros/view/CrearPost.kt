@@ -53,7 +53,12 @@ fun CrearPost(
             }
         )
         Button(
-            onClick = { navController.navigate("ListadoPosts") },
+            onClick = {
+                if (viewModel.validarCasillas()) {
+                    viewModel.crearPost()
+                    navController.navigate("PostFfnkjsfd")
+                }
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Publicar")
