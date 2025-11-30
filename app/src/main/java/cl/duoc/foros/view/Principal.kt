@@ -71,6 +71,7 @@ fun Principal(
         Button(
             onClick = {
                 if (viewModel.validarCasillas()) {
+                    viewModel.crearUsuario()
                     navController.navigate("ForosCategorias")
                 }
                 // navController.navigate("ForosCategorias")
@@ -79,13 +80,13 @@ fun Principal(
         ) {
             Text("bwaaa")
         }
-        /*Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Checkbox(
                 checked = estado.moderador,
                 onCheckedChange = viewModel::onModeradorCheck
             )
             Spacer(Modifier.width(8.dp))
             Text("Usuario es moderador")
-        } */
+        }
     }
 }

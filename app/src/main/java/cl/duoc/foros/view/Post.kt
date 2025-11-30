@@ -29,15 +29,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import cl.duoc.foros.R
+import cl.duoc.foros.viewmodel.PostViewModel
 import cl.duoc.foros.viewmodel.UsuarioViewModel
 
 
 @Composable
 fun Post(
     navController : NavController,
-    viewModel : UsuarioViewModel,
+    viewModel : PostViewModel,
 ) {
     val scrollState = rememberScrollState()
     val estado by viewModel.estado.collectAsState()
@@ -143,7 +145,7 @@ fun Post(
                             text = "Eliminar",
                             fontSize = 12.sp,
                             modifier = Modifier.clickable {
-
+                                // viewModel.
                             }
                         )
                         Image(

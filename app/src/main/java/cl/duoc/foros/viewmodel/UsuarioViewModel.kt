@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-// private val repository : UsuarioRepository
-class UsuarioViewModel(repository: UsuarioRepository) : ViewModel() {
+
+class UsuarioViewModel(private val repository : UsuarioRepository) : ViewModel() {
 
     private val _estado = MutableStateFlow(UsuarioUIState())
 
@@ -27,28 +27,14 @@ class UsuarioViewModel(repository: UsuarioRepository) : ViewModel() {
     fun onClaveChange(valor : String) {
         _estado.update { it.copy(clave = valor, errores = it.errores.copy(clave = null))}
     }
-/*
+
     fun onTerminosChange(valor : Boolean) {
-        _estado.update{it.copy ( terminos = valor)}
+        _estado.update{it.copy ( aceptaTerminos = valor)}
     }
 
     fun onModeradorCheck(valor : Boolean) {
         _estado.update{it.copy ( moderador = valor)}
     }
-    fun borrarPost() : Boolean {
-        val estadoActual = _estado.value
-        val errores = UsuarioErrores(
-            moderador = if (!estadoActual.moderador) true else null,
-        )
-        val hayErrores = listOfNotNull(
-            errores.moderador
-        ).isNotEmpty()
-
-        _estado.update {it.copy ( errores = errores) }
-
-        return !hayErrores
-    }
-    */
 
     fun validarCasillas() : Boolean {
         val estadoActual = _estado.value
@@ -72,11 +58,11 @@ class UsuarioViewModel(repository: UsuarioRepository) : ViewModel() {
         if (validarCasillas()) {
             viewModelScope.launch {
                 val nuevoUsuario = Usuario(
-                    nombre = estadoActual.nombre,
                     correo = estadoActual.correo,
-                    // clave = estadoActual.clave,
+                    clave = estadoActual.clave,
+                    moderador = estadoActual.moderador
                 )
-                // repository.insertar(nuevoUsuario)
+                repository.insertar(nuevoUsuario)
             }
         }
     }

@@ -56,4 +56,20 @@ class PostViewModel(private val repository : PostRepository) : ViewModel() {
             repository.insertarPost(nuevoPost)
         }
     }
+
+    /*
+    fun borrarPost() : Boolean {
+        val estadoActual = _estado.value
+        val errores = UsuarioErrores(
+            moderador = if (!estadoActual.moderador) true else null,
+        )
+        val hayErrores = listOfNotNull(
+            errores.moderador
+        ).isNotEmpty()
+
+        _estado.update {it.copy ( errores = errores) }
+
+        return !hayErrores
+    }
+*/
 }
