@@ -32,7 +32,7 @@ if (imagenUri != null) {
     Icon(
         imageVector = Icons.Default.AccountCircle,
     contentDescription = "Icono de perfil por defecto",
-    tint = Color().Gray,
+    tint = Color.Gray,
     modifier = Modifier
     .size(150.dp)
         .clip(CircleShape)
