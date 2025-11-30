@@ -1,24 +1,18 @@
 package cl.duoc.foros.viewmodel
 
-import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.duoc.foros.model.Usuario
-import cl.duoc.foros.repository.PostRepository
 import cl.duoc.foros.repository.UsuarioRepository
 // import cl.duoc.foros.repository.UsuarioRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.net.URI
-
 // private val repository : UsuarioRepository
-class UsuarioViewModel(private val repository : UsuarioRepository) : ViewModel() {
+class UsuarioViewModel(repository: UsuarioRepository) : ViewModel() {
 
     private val _estado = MutableStateFlow(UsuarioUIState())
-    private val _imagenUri = MutableStateFlow<Uri?>(repository.obtenerUsuario().imagenPerfil)
-    val imagenUri: StateFlow<Uri?> = _imagenUri
 
     val estado : StateFlow<UsuarioUIState> = _estado
 
@@ -33,16 +27,14 @@ class UsuarioViewModel(private val repository : UsuarioRepository) : ViewModel()
     fun onClaveChange(valor : String) {
         _estado.update { it.copy(clave = valor, errores = it.errores.copy(clave = null))}
     }
+/*
+    fun onTerminosChange(valor : Boolean) {
+        _estado.update{it.copy ( terminos = valor)}
+    }
+
     fun onModeradorCheck(valor : Boolean) {
         _estado.update{it.copy ( moderador = valor)}
     }
-
-    fun onTerminosChange(valor : Boolean) {
-        _estado.update{it.copy ( aceptaTerminos = valor)}
-    }
-
-/*
-
     fun borrarPost() : Boolean {
         val estadoActual = _estado.value
         val errores = UsuarioErrores(
@@ -82,18 +74,10 @@ class UsuarioViewModel(private val repository : UsuarioRepository) : ViewModel()
                 val nuevoUsuario = Usuario(
                     nombre = estadoActual.nombre,
                     correo = estadoActual.correo,
-                    clave = estadoActual.clave,
-                    moderador = estadoActual.moderador,
+                    // clave = estadoActual.clave,
                 )
-                repository.insertar(nuevoUsuario)
+                // repository.insertar(nuevoUsuario)
             }
-        }
-    }
-
-    fun actualizarImagen(uri: URI?) {
-        viewModelScope.launch {
-            _imagenUri.value = uri as Uri?
-            repository.updateImage(uri)
         }
     }
 
