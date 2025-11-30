@@ -19,8 +19,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import cl.duoc.foros.model.AppDatabase
+import cl.duoc.foros.model.Usuario
 import cl.duoc.foros.repository.PostRepository
 import cl.duoc.foros.repository.UsuarioRepository
+import cl.duoc.foros.ui.theme.CameraAppTheme
 import cl.duoc.foros.view.CrearPost
 import cl.duoc.foros.view.ForosCategorias
 import cl.duoc.foros.view.ListadoPosts
@@ -42,6 +44,10 @@ class MainActivity : ComponentActivity() {
             val usuarioViewModel = remember { UsuarioViewModel(Usuariorepository) }
             val Postrepository = remember { PostRepository(db.publicacionDao()) }
             val PostViewModel = remember { PostViewModel(Postrepository) }
+            CameraAppTheme {
+                val viewModel: UsuarioViewModel = usuarioViewModel
+                Principal(navController, viewModel)
+            }
 
 
             NavHost(navController = navController, startDestination = "Principal") {

@@ -1,5 +1,6 @@
 package cl.duoc.foros.model
 
+import android.net.Uri
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import cl.duoc.foros.viewmodel.UsuarioErrores
@@ -12,5 +13,6 @@ data class Usuario(
     val correo : String = "",
     val clave : String = "",
     val terminos : Boolean = false,
-    val moderador : Boolean = false
+    val moderador : Boolean = false,
+    val imagenPerfil : Uri? = null
 )
