@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
                     ListadoPosts(navController, usuarioViewModel)
                 }
                 composable("Post") {
-                    Post(navController, usuarioViewModel)
+                    Post(navController, PostViewModel)
                 }
                 composable("CrearPost") {
                     CrearPost(navController, PostViewModel)
