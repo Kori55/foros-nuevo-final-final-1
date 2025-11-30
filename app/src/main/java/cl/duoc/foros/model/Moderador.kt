@@ -10,7 +10,7 @@ data class Moderador(
         correo = "",
         clave = "",
         terminos = false,
-        errores = UsuarioErrores()k
+        errores = UsuarioErrores()
         )
     // object funcionesModeracion : FuncionesModeracion()
 */
